@@ -71,7 +71,7 @@ public class Server {
         byte[] data = new byte[numRead];
         System.arraycopy(byteBuffer.array(), 0, data, 0, numRead);
         String receivedData = new String(data);
-        System.out.println("A message of a some user: " + receivedData);
+        System.out.println("A message from: " + channel.socket().getRemoteSocketAddress() + " >> " + receivedData);
         broadcast(channel.socket().getRemoteSocketAddress() + " : " + receivedData);    //это главный метод т.к. он делает
                                                                                             //чтобы все видели сообщения
     }
